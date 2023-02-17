@@ -12,7 +12,7 @@ if (!empty($_POST)) {
     <table class="all">
         <tr>
             <td class="tt ct">頁尾宣告內容</td>
-            <td class="pp"><input type="text" name="bottom" value="<?= $$table->find(1)['bottom']; ?>"></td>
+            <td class="pp"><input type="text" name="bottom" value="<?= $$table->find(1)['bottom']; ?>" style="width:90%"></td>
         </tr>
     </table>
     <div class="ct">

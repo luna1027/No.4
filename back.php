@@ -1,5 +1,6 @@
 <?php
 include_once "./api/base.php";
+// echo serialize([1, 2, 3, 4, 5]);
 $row = $Admin->find(['acc' => $_SESSION['admin']]);
 $pr = unserialize($row['pr']);
 ?>
@@ -13,6 +14,7 @@ $pr = unserialize($row['pr']);
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
 	<script src="./js/jquery-3.4.1.min.js"></script>
 	<script src="./js/js.js"></script>
+	<script src="./js/all.js"></script>
 </head>
 
 <body>
@@ -48,7 +50,7 @@ $pr = unserialize($row['pr']);
 			}
 			?>
 		</div>
-		<div id="bottom" style="line-height:70px; color:#FFF; background:url(./icons/bot.png);" class="ct">;
+		<div id="bottom" style="line-height:70px; color:#FFF; background:url(./icons/bot.png);" class="ct">
 			<?= $Bottom->find(1)['bottom']; ?></div>
 	</div>
 

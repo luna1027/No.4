@@ -11,6 +11,7 @@ include_once "./api/base.php";
         <link href="./css/css.css" rel="stylesheet" type="text/css">
         <script src="./js/jquery-3.4.1.min.js"></script>
         <script src="./js/js.js"></script>
+        <script src="./js/all.js"></script>
 </head>
 
 <body>

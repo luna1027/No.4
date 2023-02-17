@@ -79,10 +79,13 @@ $stable = lcfirst($table);
             tel: $(".tel").val(),
             addr: $(".addr").val(),
             mail: $(".mail").val(),
+            table: 'Member'
         }
         let acc = $(".acc").val();
+        let table = 'Member';
         $.post('./api/chk.php', {
-            acc
+            acc,
+            table
         }, (res) => {
             console.log(res);
             if (parseInt(res) || acc == 'admin') {

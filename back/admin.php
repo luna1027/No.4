@@ -1,9 +1,8 @@
 <?php
 $table = "Admin";
 $stable = lcfirst($table);
-
 ?>
-<div class="ct"><button type=""  onclick="location.href='?do=new_admin'">新增管理員</button></div>
+<div class="ct"><button type="" onclick="location.href='?do=new_admin'">新增管理員</button></div>
 <form action="./api/add.php" method="post">
     <table class="all">
         <tr class="tt ct">
@@ -24,8 +23,8 @@ $stable = lcfirst($table);
                         echo "此帳號為最高權限";
                     } else {
                     ?>
-                        <button type="button" onclick="location.href='?do=edit_admin&id=<?=$row['id'];?>'">修改</button>
-                        <button type="button">刪除</button>
+                        <button type="button" onclick="location.href='?do=edit_admin&id=<?= $row['id']; ?>'">修改</button>
+                        <button type="button" onclick="location.href='./api/del.php?table=<?= $table; ?>&id=<?= $row['id']; ?>'">刪除</button>
                     <?php
                     }
                     ?>

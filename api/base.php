@@ -7,6 +7,7 @@ $Th = new DB('th');
 $Order = new DB('order');
 $Member = new DB('member');
 $Admin = new DB('admin');
+$Products = new DB('products');
 $Bottom = new DB('bottom');
 $News = new DB('news');
 
@@ -82,7 +83,7 @@ class DB
         if (is_array($del)) {
             $sql .= join(" && ", $this->arrayToSqlArray($del));
         } else {
-            $sql .= $del;
+            $sql .= " `id` = " . $del;
         }
         return $this->pdo->exec($sql);
     }

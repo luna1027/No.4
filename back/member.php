@@ -4,7 +4,7 @@ $stable = lcfirst($table);
 
 ?>
 <h2 class="ct">會員管理</h2>
-<form action="./api/add.php" method="post">
+<form action="./api/reg.php" method="post">
     <table class="all">
         <tr class="tt ct">
             <td>姓名</td>
@@ -19,10 +19,10 @@ $stable = lcfirst($table);
             <tr class="pp">
                 <td class="ct"><?= $row['name']; ?></td>
                 <td class="ct"><?= $row['acc']; ?></td>
-                <td class="ct"><?= $row['reg_date']; ?></td>
+                <td class="ct"><?= str_replace("-", "/", $row['reg_date']); ?></td>
                 <td class="ct">
-                    <button type="button">修改</button>
-                    <button type="button">刪除</button>
+                    <button type="button" onclick="location.href='?do=edit_member&id=<?= $row['id']; ?>'">修改</button>
+                    <button type="button" onclick="lof('./api/del.php?table=<?= $table; ?>&id=<?= $row['id']; ?>')">刪除</button>
                 </td>
             </tr>
         <?php
@@ -34,11 +34,3 @@ $stable = lcfirst($table);
         <input type="reset" value="重製">
     </div>
 </form>
-
-<script>
-    $(".plus")
-
-    $.post('./api/add.php', {}, (chk) => {
-        console.log(chk);
-    })
-</script>

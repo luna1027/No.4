@@ -121,13 +121,28 @@ div.ww:hover>div.s {
 }
 
 .flexCenterCenter {
-	width: 100%;
+	/* width: 100%; */
 	/* height: 100%; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .four_of_1 {
 	width: calc(100%/4);
+}
+.small_button {
+	width: 40px;
+	padding: 1px;
+}
+
+.width100{
+	width: 100%;
+	margin: 10px auto 10px auto;
+}
+
+.width100 td {
+	/* min-width: 100px; */
+	padding: 10px;
 }

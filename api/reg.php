@@ -1,16 +1,20 @@
 <?php
 include_once "./base.php";
-
+prr($_POST);
 $table = $_POST['table'];
+$stable = (lcfirst($table) !== 'products') ? lcfirst($table) : 'th';
+
 unset($_POST['table']);
+if (!empty($_FILES['img']['tmp_name'])) {
+    move_uploaded_file($_FILES['img']['tmp_name'], '../upload/' . $_FILES['img']['name']);
+    $_POST['img'] = $_FILES['img']['name'];
+}
+
 if (isset($_POST)) {
-    if (isset($_POST['reg_date'])) {
-        $_POST['reg_date'] = date("Y/m/d");
-        $$table->save($_POST);
-    } elseif (isset($_POST['pr'])) {
+    if (isset($_POST['pr'])) {
         $_POST['pr'] = serialize($_POST['pr']);
-        $$table->save($_POST);
-        to("../back.php?do=admin");
     }
+    $$table->save($_POST);
+    to("../back.php?do=$stable");
 }
 ?>

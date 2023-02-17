@@ -1,7 +1,7 @@
 <?php
 $table = "Admin";
 $stable = lcfirst($table);
-$row = $Admin->find($_GET['id']);
+$row = $$table->find($_GET['id']);
 $pr = unserialize($row['pr']);
 ?>
 <h2 class="ct">修改管理權限</h2>
@@ -28,8 +28,9 @@ $pr = unserialize($row['pr']);
         </tr>
     </table>
     <div class="ct">
+        <input type="hidden" name="id" value="<?= $row['id']; ?>">
         <input type="hidden" name="table" value="<?= $table; ?>">
-        <input type="submit" value="新增">
+        <input type="submit" value="修改">
         <input type="reset" value="重置">
     </div>
 </form>
