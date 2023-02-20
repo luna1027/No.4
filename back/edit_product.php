@@ -2,6 +2,7 @@
 $table = "Products";
 $stable = lcfirst($table);
 $row = $$table->find($_GET['id']);
+// prr($row);
 ?>
 <h2 class="ct">修改商品</h2>
 <form action="" method="post" style="height:400px;overflow:auto;" enctype="multipart/form-data">
@@ -44,6 +45,7 @@ $row = $$table->find($_GET['id']);
         </tr>
     </table>
     <div class="ct">
+        <input type="hidden" class="table" name="table" value="<?= $table; ?>">
         <input type="submit" value="修改">
         <input type="reset" value="重置">
         <button type="button" onclick="history.go(-1)">返回</button>
@@ -51,7 +53,10 @@ $row = $$table->find($_GET['id']);
 </form>
 
 <script>
+    let product = {
+        big: <?= $row['big']; ?>,
+        mid: <?= $row['mid']; ?>
+    };
     getTh('big');
-    console.log($(".bigList option:selected").val());
     getTh('mid');
 </script>

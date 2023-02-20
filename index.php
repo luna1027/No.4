@@ -56,6 +56,38 @@ include_once "./api/base.php";
                 </div>
                 <div id="left" class="ct">
                         <div style="min-height:400px;">
+                                <a href="?th=0">全部商品(<?= $Products->count(['sh' => 1]); ?>)</a>
+                                <?php
+                                $bigs = $Th->all(['parent' => 0]);
+                                foreach ($bigs as $big) {
+                                        echo "<div class='ww'>";
+                                ?>
+                                        <a href="?th=<?= $big['id']; ?>"><?= $big['name']; ?>(<?= $Products->count(['sh' => 1, 'big' => $big['id']]); ?>)</a>
+
+                                        <?php
+                                        if ($Th->count(['parent' => $big['id']]) > 0) {
+                                                $mids = $Th->all(['parent' => $big['id']]);
+                                                // prr($mids);
+                                                foreach ($mids as $mid) {
+                                        ?>
+                                                        <div class='s'><a href="?th=<?= $mid['id']; ?>"><?= $mid['name']; ?>(<?= $Products->count(['sh' => 1, 'mid' => $mid['id']]); ?>)</a></div>
+                                <?php
+                                                }
+                                        }
+                                        echo "</div>";
+                                }
+                                ?>
+                                <script>
+                                        $(".midd").hide();
+                                        $(".bigg").on("mouseover", function() {
+                                                console.log($(this).children(".midd"));
+                                                $(this).children(".midd").show();
+                                        })
+                                        $(".bigg").on("mouseleave", function() {
+                                                console.log($(this).children(".midd"));
+                                                $(this).children(".midd").hide();
+                                        })
+                                </script>
                         </div>
                         <span>
                                 <div>進站總人數</div>

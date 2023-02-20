@@ -46,6 +46,8 @@ body {
 	padding: 2%;
 	min-height: 550px;
 	border: #000 1px solid;
+	height: 550px;
+	overflow: auto;
 }
 
 #bottom {
@@ -110,6 +112,7 @@ input[type=password] {
 
 .s {
 	display: none;
+	margin-left: 30px;
 }
 
 div.ww:hover>div.s {
@@ -132,12 +135,13 @@ div.ww:hover>div.s {
 .four_of_1 {
 	width: calc(100%/4);
 }
+
 .small_button {
 	width: 40px;
 	padding: 1px;
 }
 
-.width100{
+.width100 {
 	width: 100%;
 	margin: 10px auto 10px auto;
 }
@@ -146,3 +150,39 @@ div.ww:hover>div.s {
 	/* min-width: 100px; */
 	padding: 10px;
 }
+
+#left .s a {
+	background-color: lemonchiffon;
+}
+
+#left{
+	height: 550px;
+}
+
+.bor-wh{
+	border: 1px solid #fff;
+}
+
+.bor-bt-none{
+	border-bottom: none;
+}
+.bor-tp-none{
+	border-top: none;
+}
+.bor-bt-none{
+	border-bottom: none;
+}
+
+.pd{
+	padding: 8px;
+}
+
+.single-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+  }
+
+  .min-width-none{
+	min-width: none;
+  }

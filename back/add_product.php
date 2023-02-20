@@ -51,6 +51,7 @@ $stable = lcfirst($table);
 </form>
 
 <script>
+    let product = 'undefind';
     getTh('big');
     $(".bigList").on("change", function() {
         getTh('mid');

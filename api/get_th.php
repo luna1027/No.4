@@ -6,8 +6,9 @@ unset($_POST['table']);
 $stable = lcfirst($table);
 if (isset($_POST)) {
     $rows = $$table->all(['parent' => $_POST['parent']]);
-    foreach ($rows as $row) {
-        echo "<option value='{$row['id']}'>{$row['name']}</option>";
-    }
+    echo json_encode($rows);
+    // foreach ($rows as $row) {
+    //     echo "<option value='{$row['id']}'>{$row['name']}</option>";
+    // }
 }
 ?>

@@ -83,8 +83,10 @@ $stable = lcfirst($table);
 </table>
 
 <script>
+    let product = 'undefind';
     getTh('big');
     $(".bigList").on("change", function() {
         console.log($(".bigList option:selected").val());
     })
+    
 </script>

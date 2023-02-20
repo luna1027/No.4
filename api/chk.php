@@ -14,4 +14,3 @@ if (isset($_POST)) {
         echo $$table->count($_POST);
     }
 }
-?>

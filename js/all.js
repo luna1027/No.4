@@ -11,10 +11,34 @@ function addTh(type) {
 
 function getTh(type) {
     let table = 'Th';
-    let parent = (type == 'big') ? 0 : $(".bigList option:selected").val();
+    let parent = '';
+    if (product !== 'undefind') {
+        parent = (type == 'big') ? 0 : (product.big);
+    } else {
+        parent = (type == 'big') ? 0 : $(".bigList option:selected").val();
+    }
     let list = (type == 'big') ? $(".bigList") : $(".midList");
     $.post('./api/get_th.php', { table, parent }, (res) => {
-        list.html(res);
+        let data = JSON.parse(res)
+        // console.log(data);
+        let lists = "";
+        let selected = "";
+        data.forEach(e => {
+            console.log(e);
+            if (product !== 'undefind') {
+                selected = "";
+                if (type == 'big' && e.id == product.big) {
+                    console.log(e.id);
+                    console.log(product.big);
+                    selected = "selected";
+                } else if (type == 'mid' && e.id == product.mid) {
+                    selected = "selected";
+                }
+            }
+            lists += `<option value='${e.id}' ${selected}>${e.name}</option>`;
+        });
+        console.log(lists);
+        list.html(lists);
     })
 }
 
@@ -43,3 +67,11 @@ function sh(dom, show) {
     })
 }
 
+function delSess(id, dom) {
+    console.log(id);
+    $.post('./api/del.php', { id }, (res) => {
+    // console.log(res);
+    console.log(dom);
+    $(dom).parents('tr').remove();
+    })
+}
