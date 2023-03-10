@@ -8,6 +8,7 @@ $Order = new DB('order');
 $Member = new DB('member');
 $Admin = new DB('admin');
 $Products = new DB('products');
+$Orders = new DB('orders');
 $Bottom = new DB('bottom');
 $News = new DB('news');
 

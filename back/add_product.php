@@ -64,19 +64,20 @@ $stable = lcfirst($table);
         all.append('img', $(".img")[0].files[0]);
         all.append('no', (Math.random() * 1000000).toFixed(0));
         console.log(all);
-        $.ajax({
-            type: 'post',
-            url: './api/reg.php',
-            data: all,
-            cache: false,
-            processData: false,
-            contentType: false,
-            success: function() {
-                lof('?do=th');
-            },
-            error: function() {
-                console.log(error);
-            }
-        })
+        // $.ajax({
+        //     type: 'post',
+        //     url: './api/reg.php',
+        //     data: all,
+        //     cache: false,
+        //     processData: false,
+        //     contentType: false,
+        //     success: function() {
+        //         lof('?do=th');
+        //     },
+        //     error: function() {
+        //         console.log(error);
+        //     }
+        // })
+        saveFile(all, 'th');
     })
 </script>

@@ -14,7 +14,10 @@ if (isset($_POST)) {
     if (isset($_POST['pr'])) {
         $_POST['pr'] = serialize($_POST['pr']);
     }
+    if (isset($_POST['total'])) {
+        $_POST['cart'] = serialize($_SESSION['cart']);
+    }
+    
     $$table->save($_POST);
     to("../back.php?do=$stable");
 }
-?>

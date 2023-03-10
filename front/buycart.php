@@ -44,7 +44,7 @@ if (!isset($_SESSION['member'])) {
         </table>
         <div class="ct flexCenterCenter">
             <div class="pd"><img src="./icons/0411.jpg" alt="" onclick="lof('?do=main')"></div>
-            <div class="pd"><img src="./icons/0412.jpg" onclick="lof('?do=buylist')"></div>
+            <div class="pd"><img src="./icons/0412.jpg" onclick="lof('?do=order')"></div>
 
         </div>
     </form>

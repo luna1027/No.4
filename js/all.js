@@ -70,8 +70,42 @@ function sh(dom, show) {
 function delSess(id, dom) {
     console.log(id);
     $.post('./api/del.php', { id }, (res) => {
-    // console.log(res);
-    console.log(dom);
-    $(dom).parents('tr').remove();
+        // console.log(res);
+        console.log(dom);
+        $(dom).parents('tr').remove();
+        history.pushState(null, null, '?do=buycart');
+    })
+}
+
+function del(table, id) {
+    $.get('./api/del.php', { table, id }, (res) => {
+        // console.log(res);
+        history.go(0);
+    })
+}
+
+function save(all, to, alt = false, ...hint) {
+    $.post('./api/reg.php', all, () => {
+        if (alt) {
+            alter(hint);
+        }
+        lof(`?do=${to}`);
+    })
+}
+
+function saveFile(all, to) {
+    $.ajax({
+        type: 'post',
+        url: './api/reg.php',
+        data: all,
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: function () {
+            lof(`?do=${to}`);
+        },
+        error: function () {
+            console.log(error);
+        }
     })
 }

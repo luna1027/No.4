@@ -1,7 +1,6 @@
 <?php
 $table = "Member";
 $stable = lcfirst($table);
-
 ?>
 <h2 class="ct">會員管理</h2>
 <form action="./api/reg.php" method="post">
@@ -29,8 +28,4 @@ $stable = lcfirst($table);
         }
         ?>
     </table>
-    <div class="ct">
-        <input type="submit" value="確認">
-        <input type="reset" value="重製">
-    </div>
 </form>
